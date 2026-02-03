@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import { Canvas } from "@react-three/fiber";
+import { useGLTF, OrbitControls, Bounds } from "@react-three/drei";
 
-function App() {
-  const [count, setCount] = useState(0)
+function Scene() {
+  const { scene } = useGLTF("/models/scene1/scene.gltf");
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Bounds fit observe margin={0.6}>
+      <primitive object={scene} />
+    </Bounds>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <div className="hero">
+      <Canvas
+        camera={{
+          position: [3.5, 0.8, 0],
+          fov: 40,
+          near: 0.01,
+          far: 1000,
+        }}
+      >
+        <color attach="background" args={["#1c1c1c"]} />
+
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 8, 5]} intensity={2} />
+        <directionalLight position={[-5, 3, -5]} intensity={1} />
+
+        <Scene />
+        <OrbitControls makeDefault enablePan={false} />
+      </Canvas>
+    </div>
+  );
+}
+
+export default App;
