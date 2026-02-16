@@ -1,4 +1,3 @@
-import "./App.css";
 import { Header } from "./components/Header";
 import Banner from "./pages/Banner";
 
