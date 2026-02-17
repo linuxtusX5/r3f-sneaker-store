@@ -3,6 +3,7 @@ import { useGLTF, OrbitControls, Bounds } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import * as THREE from "three";
+import Shoes from "@/components/Shoes";
 
 function Scene({ setHovered }: { setHovered: (v: boolean) => void }) {
   const { scene } = useGLTF("/models/scene1/scene.gltf");
@@ -75,6 +76,9 @@ export default function Banner() {
           <h1 className="text-[5em] font-extrabold">SneakerX</h1>
         </div>
         <div className="flex justify-center items-center center">
+          <div>
+            <Shoes />
+          </div>
           <div className="block justify-center items-center min-h-87.5 w-2xl pt-40">
             <h4 className="text-[3em] font-bold text-center">Running Shoes</h4>
             <p className="price">$98.97</p>
