@@ -76,18 +76,20 @@ export default function Banner() {
           <h1 className="text-[5em] font-extrabold">SneakerX</h1>
         </div>
         <div className="flex justify-center items-center center">
-          <div>
-            <Shoes />
-          </div>
           <div className="block justify-center items-center min-h-87.5 w-2xl pt-40">
-            <h4 className="text-[3em] font-bold text-center">Running Shoes</h4>
-            <p className="price">$98.97</p>
-            <p>
+            <h4 className="text-[3em] font-bold text-center font-mono">
+              Running Shoes
+            </h4>
+            <p className="price font-mono">$98.97</p>
+            <p className="text-2xl font-mono">
               Year after year Pegasus has proven itself on the feet of runners
               everywhere. Now our most trusted style returns with new
               innovations that make it more itself than ever. Meet the reliable,
               comfortable, always ready-to-run Nike Air Zoom Pegasus.
             </p>
+          </div>
+          <div>
+            <Shoes />
           </div>
         </div>
       </div>
